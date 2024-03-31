@@ -32,6 +32,10 @@ struct SearchAndFilterBar: View {
         .padding(.vertical, 12)
         .background(.thinMaterial)
         .clipShape(Capsule())
+        .shadow(color: .gray, radius: 50)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+        .padding()
+        .background(.thinMaterial)
     }
 }
 
