@@ -28,6 +28,27 @@ struct ExploreView: View {
                 ListingDetailView()
                     .navigationBarBackButtonHidden()
             }
+            .overlay(alignment: .top) {
+                Rectangle()
+                    .fill(.ultraThinMaterial)
+                    .ignoresSafeArea(edges: .top)
+                    .frame(height: 200)
+                    .mask {
+                        VStack(spacing: 0) {
+                            LinearGradient(
+                                colors: [Color.black.opacity(1),
+                                         Color.black.opacity(0.924),
+                                         Color.black.opacity(0)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                            .frame(height: 200)
+                            .ignoresSafeArea(edges: .top)
+                        }
+                    }
+                    .allowsHitTesting(false)
+            }
+            
             .safeAreaInset(edge: .top) {
                 Button {
                     withAnimation(.bouncy) {
@@ -38,7 +59,6 @@ struct ExploreView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            
             .overlay {
                 if showDestinationSearchView {
                     DestinationSearchView(show: $showDestinationSearchView)
